@@ -1,0 +1,33 @@
+{
+  "name": "richard_all_right",
+  "version": "1.0.0",
+  "description": "To create new parking system with Node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node src/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kim-jeongwook/Richard_allright.git"
+  },
+  "keywords": [
+    "Node.js"
+  ],
+  "author": "KimJiHwan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kim-jeongwook/Richard_allright/issues"
+  },
+  "homepage": "https://github.com/kim-jeongwook/Richard_allright#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
