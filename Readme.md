@@ -1,5 +1,5 @@
 <h1 align="center">Richard All Right 😘 </h1>
-<p>
+<p align="center">
     <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
     <img alt="node-version" src="https://img.shields.io/badge/node-12.14.2-blue.svg" />
     <img alt="npm-version" src="https://img.shields.io/badge/npm-6.13.2-blue.svg" />
