@@ -1,22 +1,39 @@
 <template>
-  <router-view />
+  <div id="app">
+    <Header />
+  </div>
 </template>
 
 <script>
+import Header from "../src/components/Header.vue";
+
 export default {
-  name: 'App',
-  created() {
-    const currentPath = this.$router.history.current.path;
-
-    if (window.localStorage.getItem('authenticated') === 'false') {
-      this.$router.push('/login');
-    }
-
-    if (currentPath === '/' || currentPath === '/app') {
-      this.$router.push('/app/dashboard');
-    }
+  name: "App",
+  components: {
+    Header,
   },
 };
 </script>
 
-<style src="./styles/theme.scss" lang="scss" />
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
