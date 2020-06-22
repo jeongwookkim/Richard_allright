@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h1>헤더 컴포넌트</h1>
     <div id="nav">
+      <img alt="Vue logo" src="../assets/logo.png" />
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/parkingLot">ParkingLot</router-link> |
+      <router-link to="/contact">Contact</router-link>
     </div>
     <router-view />
   </div>
@@ -11,7 +12,7 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "Header"
 };
 </script>
 
