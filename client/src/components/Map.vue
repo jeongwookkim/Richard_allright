@@ -5,27 +5,32 @@
     </div>
     <br />
     <gmap-map :center="center" :zoom="12" style="width:50%;  height: 500px;">
-      <gmap-marker :position="center"></gmap-marker>
-      <gmap-info-window
-        :options="infoOptions"
-        :position="infoPosition"
-        :opened="infoOpened"
-        :content="infoContent"
-        @closeclick="infoOpened=false"
-      ></gmap-info-window>
+      <gmap-marker :position="center">현재위치</gmap-marker>
+
       <gmap-marker
         :key="index"
         v-for="(marker, index) in markers"
         :position="marker.position"
-        @click="center = marker.position"
+        @click="toggleInfo(marker, index)"
+        :clickable="true"
         :icon="markerOptions"
       ></gmap-marker>
+
+      <gmap-info-window
+        :options="infoOptions"
+        :position="infoPosition"
+        :opened="infoOpened"
+        @closeclick="infoOpened=false"
+      >
+        <div v-html="infoContent" @click="setParkingLot"></div>
+      </gmap-info-window>
     </gmap-map>
   </div>
 </template>
 
 <script>
 import db from "../../firebase/init";
+import { mapMutations } from "vuex";
 
 const url = require("../assets/logo.png");
 
@@ -36,13 +41,13 @@ export default {
       center: {},
       markers: [],
       places: [],
-      data: [],
-      currentPlace: null,
+
       markerOptions: {
         url,
         //size: { width: 60, height: 90, f: "px", b: "px" },
         scaledSize: { width: 60, height: 90, f: "px", b: "px" }
       },
+
       infoPosition: null,
       infoContent: null,
       infoOpened: false,
@@ -51,34 +56,14 @@ export default {
         pixelOffset: {
           width: 0,
           height: -35
-        },
-        content:
-          '<div id="content">' +
-          '<div id="siteNotice">' +
-          "</div>" +
-          '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-          '<div id="bodyContent">' +
-          "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-          "sandstone rock formation in the southern part of the " +
-          "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-          "south west of the nearest large town, Alice Springs; 450&#160;km " +
-          "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
-          "features of the Uluru - Kata Tjuta National Park. Uluru is " +
-          "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
-          "Aboriginal people of the area. It has many springs, waterholes, " +
-          "rock caves and ancient paintings. Uluru is listed as a World " +
-          "Heritage Site.</p>" +
-          '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-          "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-          "(last visited June 22, 2009).</p>" +
-          "</div>" +
-          "</div>"
+        }
       }
     };
   },
 
   mounted() {
     this.geolocate();
+
     db.firestore()
       .collection("parkingLot")
       .orderBy("createdAt", "desc")
@@ -89,31 +74,23 @@ export default {
             lat: doc.data().latitude,
             lng: doc.data().longitude
           };
-          this.data.push(doc.data());
-          this.markers.push({ position });
+          // this.data.push(doc.data());
+          this.markers.push({
+            uid: doc.data().uid,
+            name: doc.data().name,
+            position,
+            address: doc.data().address,
+            maxNumber: doc.data().maxNumber,
+            useNumber: doc.data().useNumber,
+            price: doc.data().price
+          });
           // this.infoPosition.push({ position });
         });
-        console.log(this.markers);
       });
   },
 
   methods: {
-    // receives a place object via the autocomplete component
-    // setPlace(place) {
-    //   this.currentPlace = place;
-    // },
-    // addMarker() {
-    //   if (this.currentPlace) {
-    //     const marker = {
-    //       lat: this.currentPlace.geometry.location.lat(),
-    //       lng: this.currentPlace.geometry.location.lng()
-    //     };
-    //     this.markers.push({ position: marker });
-    //     this.places.push(this.currentPlace);
-    //     this.center = marker;
-    //     this.currentPlace = null;
-    //   }
-    // },
+    ...mapMutations(["setParkingLot"]),
     geolocate: function() {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {
@@ -121,6 +98,39 @@ export default {
           lng: position.coords.longitude
         };
       });
+    },
+    toggleInfo: function(marker, index) {
+      this.infoPosition = marker.position;
+      this.infoContent = this.getInfoContent(marker);
+
+      if (this.infoCurrentKey == index) {
+        this.infoOpened = !this.infoOpened;
+      } else {
+        this.infoOpened = true;
+        this.infoCurrentKey = index;
+      }
+    },
+    getInfoContent: function(marker) {
+      return `
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">${marker.name}</p>
+            </div>
+          </div>
+          <div class="content">
+          ${marker.address}
+            <br>
+            <time datetime="2016-1-1">${marker.uid}</time>
+          </div>
+        </div>
+      </div>`;
     }
   }
 };
