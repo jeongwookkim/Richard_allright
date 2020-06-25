@@ -4,8 +4,8 @@
       <br />
     </div>
     <br />
-    <gmap-map :center="center" :zoom="12" style="width:50%;  height: 500px;">
-      <gmap-marker :position="center">현재위치</gmap-marker>
+    <gmap-map :center="center" :zoom="12" style="width:70vw;  height: 500px;">
+      <gmap-marker :position="center"></gmap-marker>
 
       <gmap-marker
         :key="index"
@@ -22,15 +22,19 @@
         :opened="infoOpened"
         @closeclick="infoOpened=false"
       >
-        <div v-html="infoContent" @click="setParkingLot"></div>
+        <div v-html="infoContent" @click="setTerms"></div>
       </gmap-info-window>
     </gmap-map>
+    <div v-if="terms">
+      <Yaggwan />
+    </div>
   </div>
 </template>
 
 <script>
+import { mapMutations, mapGetters } from "vuex";
 import db from "../../firebase/init";
-import { mapMutations } from "vuex";
+import Yaggwan from "./Yaggwan.vue";
 
 const url = require("../assets/logo.png");
 
@@ -88,9 +92,12 @@ export default {
         });
       });
   },
-
+  computed: {
+    ...mapGetters(["terms"])
+  },
+  components: { Yaggwan },
   methods: {
-    ...mapMutations(["setParkingLot"]),
+    ...mapMutations(["setTerms"]),
     geolocate: function() {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {
@@ -127,7 +134,6 @@ export default {
           <div class="content">
           ${marker.address}
             <br>
-            <time datetime="2016-1-1">${marker.uid}</time>
           </div>
         </div>
       </div>`;
