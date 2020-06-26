@@ -1,12 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import selectedParkingLot from "./modules/selectedParkingLot";
+import ParkingLot from "./modules/parkingLot";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: { selectedParkingLot },
+  modules: { ParkingLot }
 });

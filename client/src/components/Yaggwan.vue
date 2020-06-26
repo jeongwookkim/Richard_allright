@@ -1,50 +1,54 @@
 <template>
-  <div>
-    <v-row justify="center">
-      <v-dialog v-model="dialog" persistent max-width="550px">
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            color="#3da886"
-            dark
-            v-bind="attrs"
-            v-on="on"
-          >
-            약관보기
+  <v-row justify="center">
+    <!-- <v-btn color="primary" dark @click.stop="dialog = true">Open Dialog</v-btn> -->
+
+    <v-dialog v-model="terms" max-width="290">
+      <v-card>
+        <v-card-title class="headline">약관!!!</v-card-title>
+
+        <v-card-text>약관입니다 </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn color="green darken-1" text @click="setTerms">Disagree</v-btn>
+
+          <v-btn color="green darken-1" text>
+            Agree
+            <router-link
+              id="paymentlink"
+              to="/payment"
+              @click.native="[setTerms(), setPayment()]"
+              >pay</router-link
+            >
           </v-btn>
-        </template>
-        <v-card>
-          <v-card-title>
-            <span class="headline">주차장 이용을 위한 약관에 동의 하시겠습니까?</span>
-          </v-card-title>
-          <v-card-text>
-            약관내용표시
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="green darken-1" text @click="disagree">Disagree</v-btn>
-            <v-btn color="green darken-1" text @click="dialog = false">Agree</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-row>
-  </div>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
 export default {
-  name: "Yaggwan",
   data() {
     return {
-      dialog: false,
-    }
+      dialog: false
+    };
+  },
+  computed: {
+    ...mapGetters(["terms", "payment"])
   },
   methods: {
-    disagree(){
-      alert("약관에 동의해야만 주차장 이용이 가능합니다.")
-      this.dialog="ture";
-    }
+    ...mapMutations(["setTerms", "setPayment"])
   }
 };
 </script>
 
-<style></style>
+<style scoped>
+#paymentlink {
+  z-index: 50;
+  opacity: 0;
+  position: absolute;
+}
+</style>
