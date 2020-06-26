@@ -7,6 +7,14 @@
     <gmap-map :center="center" :zoom="12" style="width:70vw;  height: 500px;">
       <gmap-marker :position="center"></gmap-marker>
 
+      <gmap-info-window
+        :options="infoOptions"
+        :position="center"
+        :opened="true"
+      >
+        <p>현재위치</p>
+      </gmap-info-window>
+
       <gmap-marker
         :key="index"
         v-for="(marker, index) in markers"
