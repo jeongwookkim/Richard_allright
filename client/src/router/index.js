@@ -3,7 +3,9 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import ParkingLot from "../views/ParkingLot.vue";
 import Contact from "../views/Contact.vue";
-import Profile from "../views/Profile.vue"
+import Profile from "../views/Profile.vue";
+import Login from "../views/Login.vue";
+import Payment from "../views/Payment.vue";
 
 Vue.use(VueRouter);
 
@@ -28,6 +30,16 @@ const routes = [
     name: "Profile",
     component: Profile
   },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login
+  },
+  {
+    path: "/payment",
+    name: "Payment",
+    component: Payment
+  }
 ];
 
 const router = new VueRouter({

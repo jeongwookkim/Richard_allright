@@ -97,7 +97,7 @@ export default {
   },
   components: { Yaggwan },
   methods: {
-    ...mapMutations(["setTerms"]),
+    ...mapMutations(["setTerms", "setpaymentInfo"]),
     geolocate: function() {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {
@@ -118,6 +118,7 @@ export default {
       }
     },
     getInfoContent: function(marker) {
+      this.setpaymentInfo(marker);
       return `
       <div class="card">
         <div class="card-image">
