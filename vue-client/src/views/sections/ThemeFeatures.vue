@@ -1,7 +1,7 @@
 <template>
   <base-section id="theme-features">
-    <base-section-heading title="Theme Features">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, in! Asperiores, impedit libero. Veniam rerum saepe unde nihil possimus quibusdam esse accusamus mollitia magni fuga.
+    <base-section-heading title="서비스 장점">
+      우리 서비스의 6가지 장점
     </base-section-heading>
 
     <v-container>
@@ -17,7 +17,7 @@
             align="left"
             horizontal
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum veniam cum dolores ratione commodi beatae quas maxime, laboriosam excepturi solut!
+            {{feature.text}}
           </base-avatar-card>
         </v-col>
       </v-row>
@@ -32,30 +32,36 @@
     data: () => ({
       features: [
         {
-          title: 'Pixel Perfect Design',
+          title: '편리성',
           icon: 'mdi-fountain-pen-tip',
+          text: '편리합니다.'
         },
         {
-          title: 'Retina Ready',
+          title: '접근성',
           icon: 'mdi-cellphone',
+          text: '접근성이 좋습니다.'
         },
         {
           color: 'primary',
           dark: true,
-          title: 'Easily Customizable',
+          title: '가성비',
           icon: 'mdi-pencil-box-outline',
+          text: '가격이 착합니다.'
         },
         {
-          title: 'Image Parallax',
+          title: '기훈이 바보',
           icon: 'mdi-image-size-select-actual',
+          text: '그냥 바보 입니다.'
         },
         {
-          title: 'Seo Optimized',
+          title: '민경이도 바보',
           icon: 'mdi-ice-pop',
+          text: '전주 바보 입니다.'
         },
         {
-          title: '24/7 Support',
+          title: '정욱이형도 바보',
           icon: 'mdi-help-circle-outline',
+          text: '그 바보'
         },
       ],
     }),
