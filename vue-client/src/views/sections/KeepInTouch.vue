@@ -10,7 +10,7 @@
           md="5"
         >
           <base-business-info title="KEEP IN TOUCH WITH US">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo pariatur quidem, quis modi iure nihil commodi suscipit, corporis dicta adipisci, voluptatum quia cupiditate.
+            Richard All Right의 새로운 식구를 모십니다.
           </base-business-info>
         </v-col>
 
