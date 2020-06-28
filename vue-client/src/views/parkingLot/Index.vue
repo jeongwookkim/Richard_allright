@@ -8,18 +8,14 @@
   export default {
     name: 'ParkingLot',
 
-    metaInfo: { title: 'About Us' },
+    metaInfo: { title: 'Search ParkingLot' },
 
     extends: View,
 
     mixins: [
       LoadSections([
         'hero-alt',
-        'about-our-product',
-        'theme-features',
-        'affiliates',
-        'newsletter',
-        'pro-features',
+        'parkingLotMap',
         'info',
       ]),
     ],

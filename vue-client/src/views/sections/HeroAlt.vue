@@ -29,7 +29,6 @@
             />
 
             <v-breadcrumbs
-              :items="items"
               class="justify-center pa-0"
               divider=">"
             />

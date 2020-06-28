@@ -13,12 +13,10 @@
           max-width="700"
           width="100%"
         >
-          <base-heading title="PROMOTE YOUR BUSINESS WITH ZERO" />
+          <base-heading title="당신이 원하는 공유 주차장 서비스 " />
 
           <base-body>
-            Infographic hypotheses influencer user experience Long madel ture gen-z paradigm shift client partner network product seilans solve management influencer analytics leverage virality.
-            incubator seed round massmarket.
-            buyer agile development growth hacking business-to-consumer ecosystem
+            더 이상의 주차난은 없다. Richard All Right
           </base-body>
 
           <div
@@ -26,7 +24,7 @@
             class="d-flex flex-wrap"
           >
             <base-btn>
-              Discover More
+              INSTALL APP
             </base-btn>
 
             <span class="font-weight-bold ml-6 mr-4 my-4">or</span>
@@ -36,6 +34,7 @@
               class="pa-1"
               height="auto"
               text
+              @click="$router.push({name : 'ParkingLot'})"
             >
               Get Started Now
             </base-btn>

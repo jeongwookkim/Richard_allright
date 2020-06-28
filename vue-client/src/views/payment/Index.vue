@@ -6,23 +6,23 @@
   import LoadSections from '@/mixins/load-sections'
 
   export default {
-    name: 'Login',
+    name: 'Payment',
 
-    metaInfo: { title: 'Login' },
+    metaInfo: { title: 'Payment History' },
 
     extends: View,
 
     mixins: [
       LoadSections([
         'hero-alt',
-        'pro-features',
+        'confirmPay',
       ]),
     ],
 
     props: {
       id: {
         type: String,
-        default: 'pro',
+        default: 'payment',
       },
     },
   }
