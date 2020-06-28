@@ -17,11 +17,11 @@
 
     data: () => ({
       features: [
-        'Zero Installation',
-        'Easy Customization',
-        'User Friendly Design',
-        '24/7 Support Desk',
-        'SEO Optimized',
+        '편리성',
+        '가성비',
+        '너무',
+        '졸려요',
+        '흑흑흑',
       ],
     }),
   }
