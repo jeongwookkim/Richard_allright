@@ -13,14 +13,12 @@
 
           <v-btn color="green darken-1" text @click="setTerms">Disagree</v-btn>
 
-          <v-btn color="green darken-1" text>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="[$router.push('Payment'), setTerms(), setPayment()]"
+          >
             Agree
-            <router-link
-              id="paymentlink"
-              to="/payment"
-              @click.native="[setTerms(), setPayment()]"
-              >pay</router-link
-            >
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -33,22 +31,16 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      dialog: false
+      dialog: false,
     };
   },
   computed: {
-    ...mapGetters(["terms", "payment"])
+    ...mapGetters(["terms", "payment"]),
   },
   methods: {
-    ...mapMutations(["setTerms", "setPayment"])
-  }
+    ...mapMutations(["setTerms", "setPayment"]),
+  },
 };
 </script>
 
-<style scoped>
-#paymentlink {
-  z-index: 50;
-  opacity: 0;
-  position: absolute;
-}
-</style>
+<style scoped></style>
