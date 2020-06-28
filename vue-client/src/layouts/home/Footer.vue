@@ -16,7 +16,7 @@
               <a
                 :key="s"
                 class="white--text pa-1 pa-md-0"
-                href="#"
+                href="https://github.com/manggong"
                 v-text="s"
               />
 
