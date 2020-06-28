@@ -11,7 +11,7 @@
         <v-row>
           <v-col
             v-for="card in cards"
-            :key="card.title"
+            :key="card.image"
             cols="12"
             sm="4"
             md="3"
@@ -35,26 +35,28 @@
     data: () => ({
       cards: [
         {
-          icon: 'mdi-keyboard-outline',
-          title: 'Trendy Design',
-          text: 'Efficiently unleash media information without cross-media value. Quickly maximize value timely deliverables schemas.',
+          icon: 'mdi-trophy-award',
+          title: 'Team Leader',
+          text: 'Jeongwook Kim',
         },
         {
-          icon: 'mdi-camera-outline',
-          title: 'Photography',
-          text: 'Efficiently unleash media information without cross-media value. Quickly maximize value timely deliverables schemas.',
+          icon: 'mdi-android',
+          title: 'App Developer',
+          text: 'Gihun Lee',
         },
         {
-          icon: 'mdi-pencil-outline',
-          title: 'Brand Making',
-          text: 'Efficiently unleash media information without cross-media value. Quickly maximize value timely deliverables schemas.',
+          icon: 'mdi-code-tags',
+          title: 'Front-End developer',
+          text: 'Minkyeong Kim',
         },
         {
-          icon: 'mdi-puzzle-outline',
-          title: '24/7 Support',
-          text: 'Efficiently unleash media information without cross-media value. Quickly maximize value timely deliverables schemas.',
+          icon: 'mdi-memory',
+          title: 'Full-Stack developer',
+          text: 'Jihwan Kim',
         },
       ],
     }),
   }
+
 </script>
+<!--https://materialdesignicons.com/cdn/2.0.46/-->

@@ -37,7 +37,7 @@
           cols="12"
           md="6"
         >
-          Copyright &copy; 2020 Vuetify, LLC
+          Copyright &copy; 2020 Richard All Right, LLC
         </v-col>
       </v-row>
     </v-container>

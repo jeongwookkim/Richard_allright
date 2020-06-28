@@ -17,7 +17,7 @@
             align="left"
             horizontal
           >
-            {{feature.text}}
+            {{ feature.text }}
           </base-avatar-card>
         </v-col>
       </v-row>
@@ -34,34 +34,34 @@
         {
           title: '편리성',
           icon: 'mdi-fountain-pen-tip',
-          text: '편리합니다.'
+          text: '편리합니다.',
         },
         {
           title: '접근성',
           icon: 'mdi-cellphone',
-          text: '접근성이 좋습니다.'
+          text: '접근성이 좋습니다.',
         },
         {
           color: 'primary',
           dark: true,
           title: '가성비',
           icon: 'mdi-pencil-box-outline',
-          text: '가격이 착합니다.'
+          text: '가격이 착합니다.',
         },
         {
           title: '기훈이 바보',
           icon: 'mdi-image-size-select-actual',
-          text: '그냥 바보 입니다.'
+          text: '그냥 바보 입니다.',
         },
         {
           title: '민경이도 바보',
           icon: 'mdi-ice-pop',
-          text: '전주 바보 입니다.'
+          text: '전주 바보 입니다.',
         },
         {
           title: '정욱이형도 바보',
           icon: 'mdi-help-circle-outline',
-          text: '그 바보'
+          text: '그 바보',
         },
       ],
     }),
