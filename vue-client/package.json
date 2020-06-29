@@ -11,7 +11,9 @@
   "dependencies": {
     "firebase": "^7.15.5",
     "firebaseui": "^4.5.1",
+    "qs": "6.9.4",
     "vue": "^2.6.11",
+    "vue-cookies": "1.7.0",
     "vue-meta": "^2.3.3",
     "vue-router": "^3.1.6",
     "vue2-google-maps": "^0.10.7",
@@ -40,7 +42,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
     "eslint-plugin-vuetify": "^1.0.0-beta.6",
-    "lodash": "^4.17.15",
+    "lodash": "4.17.15",
     "open": "^7.0.3",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
