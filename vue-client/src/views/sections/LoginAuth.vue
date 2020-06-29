@@ -3,7 +3,6 @@
     id="loginAuth"
   >
     <base-section-heading title="Login Authentication">
-      auth 버튼 추가하기
       <div id="firebaseui-auth-container" />
     </base-section-heading>
   </base-section>
@@ -11,11 +10,10 @@
 
 <script>
   import firebase from '../../../firebase/init'
-  import firebaseui from 'firebaseui'
   import 'firebaseui/dist/firebaseui.css'
+  import * as firebaseui from 'firebaseui'
 
-  const auth = firebase.auth()
-  const ui = new firebaseui.auth.AuthUI(auth)
+  const ui = new firebaseui.auth.AuthUI(firebase.auth())
 
   export default {
     name: 'LoginAuth',
@@ -44,6 +42,7 @@
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
             firebase.auth.EmailAuthProvider.PROVIDER_ID,
           ],
+          credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
           callbacks: {
             // 로그인이 성공하면,
             signInSuccessWithAuthResult: (authResult, redirectUrl) => {

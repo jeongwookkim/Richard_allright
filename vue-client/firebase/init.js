@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import * as firebase from 'firebase'
 
 const firebaseConfig = {
   apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
@@ -11,7 +11,7 @@ const firebaseConfig = {
   measurementId: process.env.VUE_APP_MEASIREMENT_ID,
 }
 // Initialize Firebase
-const firebaseApp = firebase.initializeApp(firebaseConfig)
-firebase.analytics()
+firebase.initializeApp(firebaseConfig)
+// firebase.analytics()
 
-export default firebaseApp
+export default firebase
