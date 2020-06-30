@@ -4,12 +4,12 @@
 
     <base-subheading
       class="primary--text"
-      title="Oh!"
+      title="이런!"
     />
 
     <base-subheading
       space="8"
-      title="Looks like this page doesn't exist"
+      title="존재하지 않는 페이지 입니다."
     />
 
     <base-img
@@ -22,7 +22,7 @@
 
     <div class="text-center">
       <base-btn :to="{ name: 'Home' }">
-        Get me Out of Here
+        홈으로 돌아가기
       </base-btn>
     </div>
   </base-section>

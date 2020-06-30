@@ -1,6 +1,7 @@
 // Imports
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store'
 
 Vue.use(Router)
 
@@ -10,9 +11,9 @@ const router = new Router({
   scrollBehavior: (to, from, savedPosition) => {
     if (to.hash) return { selector: to.hash }
     if (savedPosition) return savedPosition
-
     return { x: 0, y: 0 }
   },
+
   routes: [
     {
       path: '/',
@@ -42,6 +43,18 @@ const router = new Router({
           meta: { src: require('@/assets/login.jpg') },
         },
         {
+          path: 'logout',
+          name: 'Logout',
+          component: () => import('@/views/logout/Index.vue'),
+          meta: { src: require('@/assets/login.jpg') },
+        },
+        {
+          path: 'mypage',
+          name: 'Mypage',
+          component: () => import('@/views/mypage/Index.vue'),
+          meta: { src: require('@/assets/mypage.jpg') },
+        },
+        {
           path: 'payment',
           name: 'Payment',
           component: () => import('@/views/payment/Index.vue'),
@@ -54,8 +67,22 @@ const router = new Router({
         },
       ],
     },
-
   ],
 })
+
+  router.beforeEach((to, from, next) => {
+    // 로그인 안하고 접근 불가 페이지로 가려고 한다면
+    const authRequiredPages = ['Payment']
+    const authRequired = authRequiredPages.includes(to.name)
+    const { isLoggedIn } = store.getters
+
+    if (authRequired && !isLoggedIn) {
+      // 인증해야 하는데, 로그인 안 했을 때
+      next('/')
+    } else {
+      // 인증해야하는데, 로그인 했을 때
+      next()
+    }
+  })
 
 export default router

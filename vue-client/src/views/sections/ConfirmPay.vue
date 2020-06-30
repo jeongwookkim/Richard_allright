@@ -13,10 +13,10 @@
     </base-section-heading>
   </base-section>
 </template>
-
 <script>
 // import axios from "axios";
   import { mapGetters } from 'vuex'
+  import router from '../../router'
   export default {
     name: 'Payment',
     data () {
@@ -29,6 +29,9 @@
     },
     created () {
       this.payInfo = this.paymentInfo
+      if (!this.payment) {
+        router.push('/')
+      }
     },
     methods: { payForKakaoPay () {} },
   }
