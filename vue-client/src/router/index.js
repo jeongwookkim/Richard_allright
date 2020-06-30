@@ -43,6 +43,18 @@ const router = new Router({
           meta: { src: require('@/assets/login.jpg') },
         },
         {
+          path: 'logout',
+          name: 'Logout',
+          component: () => import('@/views/logout/Index.vue'),
+          meta: { src: require('@/assets/login.jpg') },
+        },
+        {
+          path: 'mypage',
+          name: 'Mypage',
+          component: () => import('@/views/mypage/Index.vue'),
+          meta: { src: require('@/assets/login.jpg') },
+        },
+        {
           path: 'payment',
           name: 'Payment',
           component: () => import('@/views/payment/Index.vue'),

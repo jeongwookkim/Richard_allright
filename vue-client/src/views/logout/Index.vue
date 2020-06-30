@@ -4,26 +4,34 @@
 
   // Mixins
   import LoadSections from '@/mixins/load-sections'
+  import { mapActions } from 'vuex'
 
   export default {
-    name: 'Login',
+    name: 'Logout',
 
-    metaInfo: { title: 'Login' },
+    metaInfo: { title: 'logout' },
 
     extends: View,
 
     mixins: [
       LoadSections([
-        'hero-alt',
-        'loginAuth',
       ]),
     ],
 
     props: {
       id: {
         type: String,
-        default: 'login',
+        default: 'logout',
       },
     },
+
+    created () {
+      this.logout()
+    },
+
+    methods: {
+      ...mapActions(['logout']),
+    },
+
   }
 </script>

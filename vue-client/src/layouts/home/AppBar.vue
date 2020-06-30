@@ -25,13 +25,34 @@
 
       <v-spacer />
 
-      <div>
+      <div v-if="!isLoggedIn">
         <v-tabs
           class="hidden-sm-and-down"
           optional
         >
           <v-tab
-            v-for="(name, i) in items"
+            v-for="(name, i) in defaultItems"
+            :key="i"
+            :to="{ name }"
+            :exact="name === 'Home'"
+            :ripple="false"
+            active-class="text--primary"
+            class="font-weight-bold"
+            min-width="96"
+            text
+          >
+            {{ name }}
+          </v-tab>
+        </v-tabs>
+      </div>
+
+      <div v-else>
+        <v-tabs
+          class="hidden-sm-and-down"
+          optional
+        >
+          <v-tab
+            v-for="(name, i) in loggedInItems"
             :key="i"
             :to="{ name }"
             :exact="name === 'Home'"
@@ -60,6 +81,7 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   export default {
     name: 'HomeAppBar',
 
@@ -69,13 +91,24 @@
 
     data: () => ({
       drawer: null,
-      items: [
+      defaultItems: [
         'Home',
         'ParkingLot',
         'Contact',
         'Login',
       ],
+      loggedInItems: [
+        'Home',
+        'ParkingLot',
+        'Contact',
+        'Mypage',
+        'Logout',
+      ],
     }),
+
+    computed: {
+      ...mapGetters(['isLoggedIn']),
+    },
   }
 </script>
 
