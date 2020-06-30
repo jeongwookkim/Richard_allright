@@ -31,7 +31,7 @@
           optional
         >
           <v-tab
-            v-for="(name, i) in defaultItems"
+            v-for="(name, i) in items1"
             :key="i"
             :to="{ name }"
             :exact="name === 'Home'"
@@ -44,6 +44,10 @@
             {{ name }}
           </v-tab>
         </v-tabs>
+        <v-app-bar-nav-icon
+          class="hidden-md-and-up"
+          @click="drawer = !drawer"
+        />
       </div>
 
       <div v-else>
@@ -52,7 +56,7 @@
           optional
         >
           <v-tab
-            v-for="(name, i) in loggedInItems"
+            v-for="(name, i) in items2"
             :key="i"
             :to="{ name }"
             :exact="name === 'Home'"
@@ -65,18 +69,24 @@
             {{ name }}
           </v-tab>
         </v-tabs>
+        <v-app-bar-nav-icon
+          class="hidden-md-and-up"
+          @click="drawer = !drawer"
+        />
       </div>
-
-      <v-app-bar-nav-icon
-        class="hidden-md-and-up"
-        @click="drawer = !drawer"
-      />
     </v-app-bar>
-
-    <home-drawer
-      v-model="drawer"
-      :items="items"
-    />
+    <div v-if="!isLoggedIn">
+      <home-drawer
+        v-model="drawer"
+        :items="items1"
+      />
+    </div>
+    <div v-else>
+      <home-drawer
+        v-model="drawer"
+        :items="items2"
+      />
+    </div>
   </div>
 </template>
 
@@ -91,13 +101,13 @@
 
     data: () => ({
       drawer: null,
-      defaultItems: [
+      items1: [
         'Home',
         'ParkingLot',
         'Contact',
         'Login',
       ],
-      loggedInItems: [
+      items2: [
         'Home',
         'ParkingLot',
         'Contact',
