@@ -5,6 +5,7 @@ import vuetify from './plugins/vuetify'
 import './plugins'
 import store from './store'
 import * as VueGoogleMaps from 'vue2-google-maps'
+import VueCookies from 'vue-cookies'
 
 Vue.use(VueGoogleMaps, {
   load: {
@@ -12,6 +13,8 @@ Vue.use(VueGoogleMaps, {
     libraries: 'places', // necessary for places input
   },
 })
+
+Vue.use(VueCookies)
 
 Vue.config.productionTip = false
 
