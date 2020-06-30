@@ -1,9 +1,8 @@
 <template>
   <base-section id="theme-features">
-    <base-section-heading title="서비스 장점">
-      우리 서비스의 6가지 장점
+    <base-section-heading title="Our Service">
+      <!-- 우리 서비스의 6가지 장점 -->
     </base-section-heading>
-
     <v-container>
       <v-row>
         <v-col
@@ -33,37 +32,43 @@
       features: [
         {
           title: '편리성',
-          icon: 'mdi-fountain-pen-tip',
-          text: '편리합니다.',
+          icon: 'mdi-home-map-marker',
+          text: '가까운 원룸을 찾고, 주차하세요.',
         },
         {
           title: '접근성',
-          icon: 'mdi-cellphone',
-          text: '접근성이 좋습니다.',
+          icon: 'mdi-human',
+          text: '우리는 어디에나 있습니다.',
         },
         {
           color: 'primary',
           dark: true,
           title: '가성비',
-          icon: 'mdi-pencil-box-outline',
-          text: '가격이 착합니다.',
+          icon: 'mdi-currency-usd',
+          text: '공용주차장에 비해 저렴합니다',
         },
         {
-          title: '기훈이 바보',
+          title: '',
           icon: 'mdi-image-size-select-actual',
           text: '그냥 바보 입니다.',
         },
-        {
-          title: '민경이도 바보',
-          icon: 'mdi-ice-pop',
-          text: '전주 바보 입니다.',
-        },
-        {
-          title: '정욱이형도 바보',
-          icon: 'mdi-help-circle-outline',
-          text: '그 바보',
-        },
+        // {
+        //   title: '민경이도 바보',
+        //   icon: 'mdi-ice-pop',
+        //   text: '전주 바보 입니다.',
+        // },
+        // {
+        //   title: '정욱이형도 바보',
+        //   icon: 'mdi-help-circle-outline',
+        //   text: '그 바보',
+        // },
       ],
     }),
   }
 </script>
+<style>
+base-section-heading{
+  /* text-transform: uppercase; */
+  font-size: 10px;
+}
+</style>

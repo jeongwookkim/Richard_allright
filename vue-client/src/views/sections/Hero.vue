@@ -10,7 +10,7 @@
         <v-responsive
           class="d-flex align-center"
           height="100%"
-          max-width="700"
+          max-width="900"
           width="100%"
         >
           <base-heading title="당신이 원하는 공유 주차장 서비스 " />
@@ -26,7 +26,11 @@
             <base-btn>
               INSTALL APP
             </base-btn>
-
+            <!-- <a :href="link">
+              <base-btn @click="link">
+                INSTALL APP
+              </base-btn>
+            </a> -->
             <span class="font-weight-bold ml-6 mr-4 my-4">or</span>
 
             <base-btn
@@ -48,10 +52,15 @@
 <script>
   export default {
     name: 'SectionHero',
-
+    // data() {
+    //   return {
+    //     link: 'https://play.google.com/store/apps/details?id=com.gihoon.richardallright'
+    //   }
+    // },
+    
     provide: {
       theme: { isDark: true },
-    },
+   },
 
     computed: {
       minHeight () {

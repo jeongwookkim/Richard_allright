@@ -1,29 +1,8 @@
 <template>
   <div>
-    <!-- <img style="width" src="/img/page1.png"> -->
-    <!-- <v-container
-      class="fill-height"
-      fluid
-      style="min-width: 375px">
-    <v-fade-transition mode="out-in">
-      <v-row >
-        <v-col cols="6"> -->
-          <!-- <v-card> -->
-            <!-- <v-img
-              src="/img/page1.png"
-              height="300"
-              width="400"
-              class="grey darken-4"
-            ></v-img> -->
-            <!-- <v-card-title class="title">height</v-card-title> -->
-          <!-- </v-card> -->
-        <!-- </v-col>
-      </v-row>
-    </v-fade-transition>
-      </v-container> -->
     <v-card
       class="mx-auto"
-      max-width="344"
+      max-width="400"
       outlined
     >
       <v-img src="/img/page1.png"></v-img>

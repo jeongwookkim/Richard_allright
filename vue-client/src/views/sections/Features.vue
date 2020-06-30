@@ -42,7 +42,7 @@
         {
           icon: 'mdi-android',
           title: 'App Developer',
-          text: 'Gihun Lee',
+          text: 'Gihoon Lee',
         },
         {
           icon: 'mdi-code-tags',
