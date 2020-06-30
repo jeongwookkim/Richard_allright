@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_h1"
@@ -137,42 +138,46 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h5"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline_h1"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@color/colorPrimary" />
+        app:srcCompat="@drawable/logo" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorAccent"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guideline_h9"
         app:layout_constraintEnd_toStartOf="@+id/guideline_v9"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline_v1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_h6" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_h5"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/userPw"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
         android:layout_gravity="center"
-        android:background="@color/white"
+        android:background="@color/lightGreen"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toStartOf="@+id/guideline_v7"
         app:layout_constraintStart_toStartOf="@+id/guideline_v3"
-        app:layout_constraintTop_toTopOf="@+id/guideline_h7"></EditText>
+        app:layout_constraintTop_toBottomOf="@+id/userId"></EditText>
 
     <EditText
         android:id="@+id/userId"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
         android:layout_gravity="center"
-        android:background="@color/white"
+        android:background="@color/lightGreen"
         app:layout_constraintBottom_toTopOf="@+id/guideline_h8"
         app:layout_constraintEnd_toStartOf="@+id/guideline_v7"
-        app:layout_constraintStart_toStartOf="@+id/guideline_v3"></EditText>
+        app:layout_constraintStart_toStartOf="@+id/guideline_v3"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout"></EditText>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
