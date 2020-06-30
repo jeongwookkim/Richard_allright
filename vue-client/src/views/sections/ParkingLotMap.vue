@@ -43,12 +43,12 @@
           @closeclick="infoOpened=false"
         >
           <div
-            @click="setTerms"
+            @click="confirmLogin"
             v-html="infoContent"
           />
         </gmap-info-window>
       </gmap-map>
-      <div v-if="terms">
+      <div v-if="terms && isLoggedIn">
         <yaggwan />
       </div>
     </div>
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-  import { mapMutations, mapGetters } from 'vuex'
+  import { mapMutations, mapGetters, mapActions } from 'vuex'
   import db from '../../../firebase/init'
   import yaggwan from './Yaggwan.vue'
 
@@ -93,7 +93,7 @@
       }
     },
     computed: {
-      ...mapGetters(['terms']),
+      ...mapGetters(['terms', 'isLoggedIn']),
     },
     mounted () {
       this.geolocate()
@@ -123,6 +123,7 @@
     },
     methods: {
       ...mapMutations(['setTerms', 'setpaymentInfo']),
+      ...mapActions(['confirmLogin']),
       geolocate: function () {
         navigator.geolocation.getCurrentPosition(position => {
           this.center = {

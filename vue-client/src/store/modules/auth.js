@@ -26,7 +26,6 @@ const actions = {
   login ({ commit }, uid) {
     commit('setuid', uid)
     cookies.set('user_uid', uid)
-    alert('로그인이 완료되었습니다.')
     router.push('/')
   },
 }

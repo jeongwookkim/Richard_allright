@@ -52,7 +52,7 @@ const router = new Router({
           path: 'mypage',
           name: 'Mypage',
           component: () => import('@/views/mypage/Index.vue'),
-          meta: { src: require('@/assets/login.jpg') },
+          meta: { src: require('@/assets/mypage.jpg') },
         },
         {
           path: 'payment',
