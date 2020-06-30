@@ -79,13 +79,13 @@
       <home-drawer
         v-model="drawer"
         :items="items1"
-        />
+      />
     </div>
     <div v-else>
       <home-drawer
         v-model="drawer"
         :items="items2"
-        />
+      />
     </div>
   </div>
 </template>

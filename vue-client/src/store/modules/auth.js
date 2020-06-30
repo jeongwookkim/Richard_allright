@@ -3,29 +3,36 @@ import cookies from 'vue-cookies'
 
 const state = {
   uid: cookies.get('user_uid'),
-  userInfo: {},
+  userInfo: {
+    userPhotoUrl: '',
+  },
 }
 
 const getters = {
   isLoggedIn: (state) => !!state.uid,
+  userPhotoUrl: (state) => state.userInfo.userPhotoUrl,
 }
 
 const mutations = {
-  setuid (state, uid) {
+  setuId (state, uid) {
     state.uid = uid
+  },
+  setUserInfo (state, user) {
+    state.userPhotoUrl = user.photoURL
   },
 }
 
 const actions = {
   logout ({ commit }) {
     // uid 값 null로 바꾸기
-    commit('setuid', null)
+    commit('setuId', null)
     cookies.remove('user_uid')
     location.pathname = '/'
   },
-  login ({ commit }, uid) {
-    commit('setuid', uid)
-    cookies.set('user_uid', uid)
+  login ({ commit }, user) {
+    commit('setuId', user.uid)
+    commit('setUserInfo', user)
+    cookies.set('user_uid', user.uid)
     router.push('/')
   },
 }

@@ -37,8 +37,9 @@
           credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
           callbacks: {
             signInSuccessWithAuthResult: (authResult, redirectUrl) => {
-              const uid = authResult.user.uid
-              this.login(uid)
+              console.log(authResult.user.photoURL)
+              const user = authResult.user
+              this.login(user)
             },
           },
         })

@@ -1,80 +1,55 @@
 <template>
   <base-section
     id="mypage"
-    space="0"
   >
-    <div>
-      <!-- <img style="width" src="/img/page1.png"> -->
-      <!-- <v-container
-      class="fill-height"
-      fluid
-      style="min-width: 375px">
-    <v-fade-transition mode="out-in">
-      <v-row >
-        <v-col cols="6"> -->
-      <!-- <v-card> -->
-      <!-- <v-img
-              src="/img/page1.png"
-              height="300"
-              width="400"
-              class="grey darken-4"
-            ></v-img> -->
-      <!-- <v-card-title class="title">height</v-card-title> -->
-      <!-- </v-card> -->
-      <!-- </v-col>
-      </v-row>
-    </v-fade-transition>
-      </v-container> -->
-      <v-card
-        class="mx-auto"
-        max-width="344"
-        outlined
+    <v-img
+      :src="userPhotoUrl"
+      class="mx-auto mb-8"
+      max-width="128"
+    />
+
+    <base-section-heading title="MyPage" />
+
+    <v-container>
+      <v-row
+        align="center"
+        justify="center"
       >
-        <v-img src="/img/page1.png" />
-        <v-list-item three-line>
-          <v-list-item-content>
-            <div class="overline mb-4">
-              Profile
-            </div>
-            <v-list-item-title class="headline mb-1">
-              김민경
-            </v-list-item-title>
-            <v-list-item-subtitle>연락처 : 010-1234-5678</v-list-item-subtitle>
-          </v-list-item-content>
+        <v-col
+          cols="12"
+          md="7"
+        >
+          <p>사용자 정보를 입력 합시다</p>
+        </v-col>
 
-          <v-list-item-avatar
-            tile
-            size="80"
-            color="grey"
+        <v-col
+          cols="12"
+          md="5"
+        >
+          <v-card
+            elevation="16"
+            class="mb-12"
           >
-            <v-img src="/img/page1.png" />
-          </v-list-item-avatar>
-        </v-list-item>
-
-        <v-card-actions>
-          <v-btn text>
-            회원정보 수정
-          </v-btn>
-        </v-card-actions>
-        <v-card-actions>
-          <v-btn
-            text
-            class="font-weight-bold"
-            outlined
-            color="#3da886"
-          >
-            내가 예약한 주차장 찾기
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </div>
+            <base-img
+              max-width="100%"
+              :src="userPhotoUrl"
+            />
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </base-section>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   export default {
-    name: 'Mypage',
+    name: 'MyPage',
+
+    data: () => ({
+    }),
+    computed: {
+      ...mapGetters(['userPhotoUrl']),
+    },
   }
 </script>
-
-<style></style>
