@@ -39,20 +39,22 @@ app.post('/payment', (req, res)=>{
         total_amount: price, // 2200, // 총액
         vat_amount: 0,
         tax_free_amount: 0,
-        approval_url: 'https://localhost:8081/approve',
-        fail_url: 'https://www.daum.net',
-        cancel_url: 'https://www.kakao.com',
+        approval_url: 'https://localhost:8080/approve',
+        fail_url: 'https://localhost:8080',
+        cancel_url: 'https://localhost:8080',
         }
         axios.post(baseUrl, qs.stringify(data), config)
         .then((response) => {
-            return res.json(response.data.next_redirect_pc_url)
+            // console.log(response.data)
+            return res.json(response.data)
         })
         .catch((err) => {
             console.log(err)
         })
 })
-app.get('/aaa',())
+
 app.post('/approve', (req, res) => {
+    console.log(req.body)
     const baseUrl = 'https://kapi.kakao.com/v1/payment/approve'    
     const config = {
         headers: {
@@ -61,14 +63,14 @@ app.post('/approve', (req, res) => {
         }
     const data = {
         cid: 'TC0ONETIME',
-        tid: 'T1234567890123456789',
-        partner_order_id: 'partner_order_id',
+        tid: req.body.tid,
+        partner_order_id: '1111',
         partner_user_id: 'partner_user_id',
-        pg_token: req.body.token.pg_token
+        pg_token: req.body.pg_token.pg_token
         }
         axios.post(baseUrl, qs.stringify(data), config)
         .then((response) => {
-            console.log(response)
+            console.log(response.data)
             return res.json(response.data)
         })
         .catch((err) => {
