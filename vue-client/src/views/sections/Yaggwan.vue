@@ -9,7 +9,7 @@
       >
         <v-card>
           <v-card-title class="headline">
-            약관!!!
+            약관
           </v-card-title>
 
           <v-card-text>약관입니다 </v-card-text>

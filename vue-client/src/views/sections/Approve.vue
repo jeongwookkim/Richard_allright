@@ -19,6 +19,7 @@
   import qs from 'qs'
   import axios from 'axios'
   import { mapGetters } from 'vuex'
+  import cookies from 'vue-cookies'
 
   export default {
     name: 'Approve',
@@ -28,15 +29,20 @@
     },
 
     computed: {
-      ...mapGetters(['paymentInfo']),
+      ...mapGetters(['tid']),
     },
 
     created () {
-      const token = qs.parse(location.search.replace('?', ''))
+      console.log(this.tid)
+      const data = {
+        pg_token: qs.parse(location.search.replace('?', '')),
+        tid: cookies.get('tid'),
+      }
 
-      axios.post('http://localhost:3030/approve', { token }, { withCredentials: true })
+      axios.post('http://localhost:3030/approve', data, { withCredentials: true })
         .then(response => {
           console.log(response.data)
+          // 리턴값 바탕으로 db에 저장
         })
         .catch((err) => {
           console.log(err)

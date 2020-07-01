@@ -4,20 +4,21 @@
     id="confirmPay"
   >
     <base-section-heading title="Payment Page">
-      <p>주차장 이름은 : {{ payInfo.parkingLotName }}</p>
-      <p>주차장 주소는 : {{ payInfo.address }}</p>
-      <p>주차장 가격은 : {{ payInfo.price }}</p>
-      <button @click="payForKakaoPay">
-        카카오로 결제하기
-      </button>
+      <p>주차장 이름 : {{ payInfo.parkingLotName }}</p>
+      <p>주차장 주소 : {{ payInfo.address }}</p>
+      <p>주차장 가격 : {{ payInfo.price }}</p>
+      <v-btn @click="payForKakaoPay">
+        kakaopay로 결제하기
+      </v-btn>
     </base-section-heading>
   </base-section>
 </template>
 <script>
   import axios from 'axios'
   // import rp from 'request-promise'
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
   import router from '../../router'
+
   export default {
     name: 'Payment',
     data () {
@@ -35,6 +36,7 @@
       }
     },
     methods: {
+      ...mapActions(['createTidCookie']),
       payForKakaoPay () {
         const baseUrl = 'http://localhost:3030/payment'
         const data = {
@@ -46,7 +48,8 @@
         }
         axios.post(baseUrl, data, config)
           .then((response) => {
-            location.href = response.data
+            this.createTidCookie(response.data.tid)
+            location.href = response.data.next_redirect_pc_url
           })
           .catch((err) => {
             console.log(err)
