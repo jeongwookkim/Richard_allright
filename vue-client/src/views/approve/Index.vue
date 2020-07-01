@@ -6,15 +6,15 @@
   import LoadSections from '@/mixins/load-sections'
 
   export default {
-    name: 'FourOhFour',
+    name: 'Approve',
 
-    metaInfo: { title: 'Not found' },
+    metaInfo: { title: 'Approve' },
 
     extends: View,
 
     mixins: [
       LoadSections([
-        '404',
+        'approve',
         'info-alt',
       ]),
     ],
@@ -22,7 +22,7 @@
     props: {
       id: {
         type: String,
-        default: 'FourOhFour',
+        default: 'approve',
       },
     },
   }
