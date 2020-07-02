@@ -37,8 +37,17 @@
           credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
           callbacks: {
             signInSuccessWithAuthResult: (authResult, redirectUrl) => {
-              // user 정보 저장하는 쿼리 날려야 함.
-              console.log(authResult.user.photoURL)
+              firebase
+                .firestore()
+                .collection('users')
+                .add({
+                  uid: authResult.user.uid,
+                  profilePicUrl: authResult.user.photoURL,
+                  timestamp: new Date(),
+                })
+                .catch((error) => {
+                  console.error('user 정보 저장 에러', error)
+                })
               const user = authResult.user
               this.login(user)
             },
