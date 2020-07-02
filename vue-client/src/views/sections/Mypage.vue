@@ -2,12 +2,6 @@
   <base-section
     id="mypage"
   >
-    <v-img
-      :src="userPhotoUrl"
-      class="mx-auto mb-8"
-      max-width="128"
-    />
-
     <base-section-heading title="MyPage" />
 
     <v-container>
@@ -15,25 +9,28 @@
         align="center"
         justify="center"
       >
+        <v-img
+          max-width="20%"
+          :user-photo-url="userPhotoUrl"
+          :src="userPhotoUrl"
+        />
         <v-col
           cols="12"
           md="7"
-        >
-          <p>사용자 정보를 입력 합시다</p>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="5"
         >
           <v-card
             elevation="16"
             class="mb-12"
           >
-            <base-img
-              max-width="100%"
-              :src="userPhotoUrl"
-            />
+            <v-card-title>My ParkingLot</v-card-title>
+            <v-card-text>
+              <div
+                v-for="parkingLot in myParkingLots"
+                :key="parkingLot.timestamp"
+              >
+                주문 번호: {{ parkingLot.orderNumber }} 주차장 이름: {{ parkingLot.parkingLotName }}
+              </div>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -42,14 +39,48 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import firebase from '../../../firebase/init'
+  import cookies from 'vue-cookies'
+
+  const userUid = cookies.get('user_uid')
   export default {
     name: 'MyPage',
 
     data: () => ({
+      userPhotoUrl: cookies.get('userPhotoUrl'),
+      myParkingLots: [],
     }),
-    computed: {
-      ...mapGetters(['userPhotoUrl']),
+    mounted () {
+      firebase
+        .firestore()
+        .collection('usedParkingLot')
+        .where('uid', '==', userUid)
+        .get()
+        .then(snapshot => {
+          snapshot.forEach(doc => {
+            console.log('doc는')
+            console.log(doc.data())
+            this.myParkingLots.push({ parkingLotName: doc.data().parkingLotName, orderNumber: doc.data().orderNumber, timestamp: doc.data().timestamp })
+          })
+        })
+        .catch(err => {
+          console.log('Error getting documents', err)
+        })
+    },
+    methods: {
+      // byeCar (orderNumber) {
+      //   firebase
+      //     .firestore()
+      //     .collection('usedParkingLot')
+      //     .where(orderNumber)
+      //     .delete()
+      //     .then(response => {
+      //       console.log(response)
+      //     })
+      //     .catch(err => {
+      //       console.log('문서 삭제 에러용', err)
+      //     })
+      // },
     },
   }
 </script>

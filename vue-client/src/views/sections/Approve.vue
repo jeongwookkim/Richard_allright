@@ -42,7 +42,7 @@
 
       axios.post('http://localhost:3030/approve', data, { withCredentials: true })
         .then(response => {
-          console.log(response.data)
+          cookies.remove('tid')
           firebase
             .firestore()
             .collection('usedParkingLot')
