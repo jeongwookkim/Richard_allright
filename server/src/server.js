@@ -34,14 +34,14 @@ app.post('/payment', (req, res)=>{
         cid: 'TC0ONETIME',
         partner_order_id: '1111', // 주문번호
         partner_user_id: 'partner_user_id', // 유저 아이디
-        item_name: parkingLotName, // "초코파이", // 메인 주문 상품 외 2건
+        item_name: parkingLotName, // 주문 상품
         quantity: 1, // 총 갯수
         total_amount: price, // 2200, // 총액
         vat_amount: 0,
         tax_free_amount: 0,
-        approval_url: 'https://localhost:8080/approve',
-        fail_url: 'https://localhost:8080',
-        cancel_url: 'https://localhost:8080',
+        approval_url: 'http://localhost:8081/approve',
+        fail_url: 'http://localhost:8080',
+        cancel_url: 'http://localhost:8080',
         }
         axios.post(baseUrl, qs.stringify(data), config)
         .then((response) => {

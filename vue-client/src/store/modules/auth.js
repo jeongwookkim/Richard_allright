@@ -4,7 +4,7 @@ import cookies from 'vue-cookies'
 const state = {
   uid: cookies.get('user_uid'),
   userInfo: {
-    userPhotoUrl: '',
+    userPhotoUrl: cookies.get('userPhotoUrl'),
   },
 }
 
@@ -19,6 +19,7 @@ const mutations = {
   },
   setUserInfo (state, user) {
     state.userPhotoUrl = user.photoURL
+    cookies.set('userPhotoUrl', user.photoURL)
   },
 }
 
@@ -27,6 +28,7 @@ const actions = {
     // uid 값 null로 바꾸기
     commit('setuId', null)
     cookies.remove('user_uid')
+    cookies.remove('userPhotoUrl')
     location.pathname = '/'
   },
   login ({ commit }, user) {

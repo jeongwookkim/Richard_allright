@@ -20,6 +20,7 @@
   import axios from 'axios'
   import { mapGetters } from 'vuex'
   import cookies from 'vue-cookies'
+  import firebase from '../../../firebase/init'
 
   export default {
     name: 'Approve',
@@ -41,8 +42,19 @@
 
       axios.post('http://localhost:3030/approve', data, { withCredentials: true })
         .then(response => {
-          console.log(response.data)
-          // 리턴값 바탕으로 db에 저장
+          cookies.remove('tid')
+          firebase
+            .firestore()
+            .collection('usedParkingLot')
+            .add({
+              uid: cookies.get('user_uid'),
+              orderNumber: response.data.aid,
+              parkingLotName: response.data.item_name,
+              timestamp: response.data.approved_at,
+            })
+            .catch((error) => {
+              console.error('usedParkingLot 정보 저장 에러', error)
+            })
         })
         .catch((err) => {
           console.log(err)
