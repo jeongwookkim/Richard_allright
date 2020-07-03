@@ -60,7 +60,7 @@
   import db from '../../../firebase/init'
   import yaggwan from './Yaggwan.vue'
 
-  const url = require('../../assets/logo.png')
+  const url = require('../../assets/location_logo_available.png')
 
   export default {
     name: 'ParkingLotMap',
@@ -77,7 +77,7 @@
         markerOptions: {
           url,
           // size: { width: 60, height: 90, f: "px", b: "px" },
-          scaledSize: { width: 60, height: 90, f: 'px', b: 'px' },
+          scaledSize: { width: 35, height: 55, f: 'px', b: 'px' },
         },
 
         infoPosition: null,
@@ -147,11 +147,11 @@
         this.setpaymentInfo(marker)
         return `
         <div class="card">
-          <div class="card-image">
+          <!-- <div class="card-image">
             <figure class="image is-4by3">
               <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
             </figure>
-          </div>
+          </div> -->
           <div class="card-content">
             <div class="media">
               <div class="media-content">

@@ -13,7 +13,8 @@
           max-width="700"
           width="100%"
         >
-          <base-heading title="당신이 원하는 공유 주차장 서비스 " />
+          <base-heading title="당신이 원하는" />
+          <base-heading title="공유 주차장 서비스" />
 
           <base-body>
             더 이상의 주차난은 없다. Richard All Right

@@ -1,7 +1,7 @@
 <template>
   <base-section id="theme-features">
     <base-section-heading title="서비스 장점">
-      우리 서비스의 6가지 장점
+      우리 서비스의 4가지 장점을 소개합니다.
     </base-section-heading>
 
     <v-container>
@@ -34,34 +34,24 @@
         {
           title: '편리성',
           icon: 'mdi-fountain-pen-tip',
-          text: '편리합니다.',
+          text: '클릭 한번으로 원한는 주차장을 예약하세요.',
         },
         {
           title: '접근성',
           icon: 'mdi-cellphone',
-          text: '접근성이 좋습니다.',
+          text: '방문하시는 건물 주변에 주차가 가능합니다.',
         },
         {
           color: 'primary',
           dark: true,
-          title: '가성비',
+          title: '합리적인 가격',
           icon: 'mdi-pencil-box-outline',
-          text: '가격이 착합니다.',
+          text: '비싼 공영주차장말고 합리적인 가격으로 주차하세요.',
         },
         {
-          title: '기훈이 바보',
+          title: '도로미관 개선',
           icon: 'mdi-image-size-select-actual',
-          text: '그냥 바보 입니다.',
-        },
-        {
-          title: '민경이도 바보',
-          icon: 'mdi-ice-pop',
-          text: '전주 바보 입니다.',
-        },
-        {
-          title: '정욱이형도 바보',
-          icon: 'mdi-help-circle-outline',
-          text: '그 바보',
+          text: '더 이상 도로변 불법 주차는 NO!',
         },
       ],
     }),

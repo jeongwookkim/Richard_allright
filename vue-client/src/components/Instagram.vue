@@ -10,6 +10,7 @@
           :src="require(`@/assets/insta-${n}.jpg`)"
           color="grey lighten-1"
           width="96"
+          height="72"
           tile
         />
       </v-col>

@@ -8,10 +8,10 @@
       height="80"
     >
       <base-img
-        :src="require('@/assets/logo.png')"
+        :src="require('@/assets/title.png')"
         class="mr-3 hidden-xs-only"
         contain
-        max-width="130"
+        max-width="250"
         width="100%"
         @click="$router.push({ name : 'Home' })"
       />
