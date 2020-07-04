@@ -16,7 +16,7 @@
 
 <p align="center"><img width="500" height="312" src="https://i.imgur.com/QKjWuvu.png"></p>
 
-### 📖 [Wiki]()
+### 📖 [Wiki](https://github.com/kim-jeongwook/Richard_allright/wiki)
 ### 🖥 [Demo Video]()
 ### 🚘 [Click and Use]()
 > 서비스 개요
@@ -24,11 +24,15 @@
 ## Install & Run
 - 🚗 Front-End
 ```sh
-
+cd vue-client
+npm i
+npm run serve
 ```
 - 🚕 Back-End
 ```sh
-
+cd server
+npm i
+npm start
 ```
 - 🚙 App
 ```sh
