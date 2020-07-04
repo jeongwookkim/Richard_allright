@@ -14,9 +14,9 @@
     </a>
 </p>
 
-<p align="center"><img width="500" height="312" src="https://picsum.photos/id/237/200/300"></p>
+<p align="center"><img width="500" height="312" src=https://imgur.com/QKjWuvu></p>
 
-### 📖 [Wiki](https://github.com/connect-foundation/2019-01/wiki)
+### 📖 [Wiki]()
 ### 🖥 [Demo Video]()
 ### 🚘 [Click and Use]()
 > 서비스 개요
