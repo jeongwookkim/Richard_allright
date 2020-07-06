@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#A8A8A8</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="splash">#273133</color>
+    <color name="red">#99FF8C8C</color>
+    <color name="logo">#3da886</color>
+    <color name="lightGreen">#a8f7de</color>
+    <color name="tomyeongGreen">#99a8f7de</color>
+    <color name="tomyeongwhite">#80FFFFFF</color>
+    <color name="tomyeonggray">#63717171</color>
+    <color name="black">#000000</color>
+</resources>
