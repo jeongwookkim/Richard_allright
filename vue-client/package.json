@@ -12,7 +12,7 @@
     "axios": "^0.19.2",
     "firebase": "^7.15.5",
     "firebaseui": "^4.5.1",
-    "qs": "6.9.4",
+    "qs": "6.9.7",
     "request-promise": "^4.2.5",
     "vue": "^2.6.11",
     "vue-cookies": "^1.7.0",
